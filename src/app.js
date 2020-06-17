@@ -81,8 +81,9 @@ app.post("/repositories/:id/like", (request, response) => {
   }
 
   const {likes} = repositories[repositorieIndex]
-  const repository = {...repositories[repositorieIndex], likes: likes++}
-
+  const repository = repositories[repositorieIndex]
+  repository.likes++
+ 
   repositories[repositorieIndex] = repository
 
   return response.json(repository)
